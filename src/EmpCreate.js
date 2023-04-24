@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const EmpCreate = () => {
     const [id, setId] = useState("");
@@ -7,10 +7,22 @@ const EmpCreate = () => {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [isActive, setIsActive] = useState(true);
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(id, name, email, phone, isActive);
+        const userCreateData = { id, name, email, phone, isActive };
+
+        fetch("http://localhost:8000/users", {
+            method: "POST",
+            headers: {"content-type": "application/json"},
+            body: JSON.stringify(userCreateData)
+        }).then((res)=>{
+            alert('Saved Successfully!');
+            navigate("/");
+        }).catch((err)=>{
+            console.log(err.message)
+        })
     }
 
     return (
@@ -53,7 +65,7 @@ const EmpCreate = () => {
 
                                 <div className="col-lg-12">
                                     <div className="form-check">
-                                        <input checked={isActive} onChange={e=>setIsActive(e.target.value)} type="checkbox" className="form-check-input" />
+                                        <input checked={isActive} onChange={e=>setIsActive(e.target.checked)} type="checkbox" className="form-check-input" />
                                         <label className="form-check-label">Is Active</label>
                                     </div>
                                 </div>

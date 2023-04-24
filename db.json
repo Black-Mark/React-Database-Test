@@ -4,7 +4,15 @@
       "id": 1,
       "name": "Jeshua",
       "email": "jeshuabay@gmail.com",
-      "phone": "09087149370"
+      "phone": "09087149370",
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "name": "Ewan",
+      "email": "jeshuabay@gmaol.com",
+      "phone": "87yuhuh",
+      "isActive": true
     }
   ],
   "departments": [
