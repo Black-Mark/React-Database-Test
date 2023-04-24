@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Jeshua",
+      "email": "jeshuabay@gmail.com",
+      "phone": "09087149370"
+    }
+  ],
+  "departments": [
+    {
+      "dept_id": 1,
+      "dept_name": "BSIT"
+    }
+  ]
+}
