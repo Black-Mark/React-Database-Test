@@ -4,7 +4,7 @@ import EmpListing from './EmpListing';
 import EmpCreate from './EmpCreate';
 import EmpView from './EmpView';
 import EmpEdit from './EmpEdit';
-
+import Pagenotfound from './pagenotfound';
 function App() {
   return (
     <>
@@ -15,9 +15,10 @@ function App() {
           <Routes>
             <Route path='/' element={<EmpListing />} />        
             <Route path='/employee/create' element={<EmpCreate />} />
-
+            
             <Route path='/employee/edit/:empid' element={<EmpEdit />} />
             <Route path='/employee/view/:empid' element={<EmpView />} />
+            <Route path='/*' element={<Pagenotfound />} />
           </Routes>
         </BrowserRouter>
       </div>

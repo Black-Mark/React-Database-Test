@@ -7,6 +7,9 @@ const EmpCreate = () => {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [isActive, setIsActive] = useState(true);
+
+    const [validation, setValidation] = useState(false);
+
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
@@ -45,21 +48,22 @@ const EmpCreate = () => {
                                 <div className="col-lg-12">
                                     <div className="form-group">
                                         <label>Name</label>
-                                        <input value={name} onChange={e=>setName(e.target.value)} className="form-control" />
+                                        <input required onMouseDown={e=>setValidation(true)} value={name} onChange={e=>setName(e.target.value)} className="form-control" />
+                                        { name.length==0 && validation && <span className="text-danger">Enter Name</span>}
                                     </div>
                                 </div>
 
                                 <div className="col-lg-12">
                                     <div className="form-group">
                                         <label>Email</label>
-                                        <input value={email} onChange={e=>setEmail(e.target.value)} className="form-control" />
+                                        <input required value={email} onChange={e=>setEmail(e.target.value)} className="form-control" />
                                     </div>
                                 </div>
 
                                 <div className="col-lg-12">
                                     <div className="form-group">
                                         <label>Phone</label>
-                                        <input value={phone} onChange={e=>setPhone(e.target.value)} className="form-control" />
+                                        <input required value={phone} onChange={e=>setPhone(e.target.value)} className="form-control" />
                                     </div>
                                 </div>
 
